@@ -1,0 +1,33 @@
+1. Summary: The infection chain starts with a user opening a malicious zip file (test.zip)
+downloaded from abcxyz.site through Google Chrome. Upon opening, the zip file expands to
+unzipped folder containing a JavaScript file (test.js). The JavaScript file then downloads and
+
+saves a DLL file (test.dll) from malicious.site in the Temp directory. The DLL file is registered
+as an ActiveX control using regsvr32.exe, and a scheduled task called &quot;Updater&quot; is created to
+run the DLL daily at 9:00 AM. The final process svchost.exe might be part of the malware&#39;s
+persistence mechanism.
+
+2. Suspicious or Malicious Techniques:
+- Execution via a web browser (Google Chrome)
+- Use of compressed archives (test.zip) to hide malicious content
+- Use of JavaScript to download and execute additional malicious files
+- Registration of the DLL as an ActiveX control using regsvr32.exe
+- Creation of a scheduled task for persistence
+
+3. MITRE ATT&amp;CK Techniques:
+- Initial Access: Exploitation of Web Browser (T1078)
+- Execution: Command and Scripting Interpreter (T1059), Obfuscated Files or Information
+(T1027)
+- Persistence: Scheduled Task/Job (T1053)
+
+4. Key IOCs:
+- File Names: chrome.exe, cmd.exe, powershell.exe, wscript.exe, regsvr32.exe,
+schtasks.exe, svchost.exe, test.zip, test.js, test.dll
+- Domains: abcxyz.site, malicious.site
+- IPs: Not specified in the provided process tree
+- Registry Artifacts: C:\Users\user\AppData\Local\Temp\test[.]dll
+- Scheduled Tasks: &quot;Updater&quot;
+
+5. Severity: High - This infection chain involves multiple evasion techniques, persistence
+mechanisms, and the download of an unknown DLL file from a malicious domain, posing a
+significant threat to the system and data.
