@@ -16,8 +16,7 @@ I set up a local lab using **Ollama + Mistral** on my Windows workstation, integ
   - Extracted IOCs  
   - Severity rating  
 
-📷 Example:  
-![Ollama Summary](screenshots/ollama_summary.png)
+
 
 ---
 
@@ -45,4 +44,3 @@ AI doesn’t replace defenders — it **augments SOC analysts**.
 
 ---
 
-## 📂 Repository Structure
